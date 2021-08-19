@@ -13,18 +13,18 @@ const SearchContextProvider = (props) => {
   const handleQuery = async (query) => {
     setQuery(query);
     if (query !== "") {
-      await BooksAPI.search(query).then((data) => {
-        if (!data || data.error) {
+      await BooksAPI.search(query).then((results) => {
+        if (!results || results.error) {
           setBookResults([]);
-        } else if (Array.isArray(data)) {
-          data = data.map((book) => {
+        } else if (Array.isArray(results)) {
+          results = results.map((book) => {
             const thisBook = books.find(({ id }) => book.id === id);
             return {
               ...book,
               shelf: thisBook?.shelf ?? "none",
             };
           });
-          setBookResults(data);
+          setBookResults(results);
         }
       });
     } else {
