@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Col } from 'react-bootstrap'
 import MoveToShelfMenu from './MoveToShelfMenu'
 
-const BookCard = ({ book, updateBook }) => {
+const BookCard = ({ book }) => {
   return (
     <Col className="mb-1 mt-2" xs sm md={6} lg={4} xl={4}>
       <Card border-variant="dark"
@@ -21,11 +21,10 @@ const BookCard = ({ book, updateBook }) => {
             <Card.Subtitle
               className="text-muted mb-3">
               {(book.authors) ? (book.authors).join(", ") : 'No Author Listed'}
-            </Card.Subtitle >
+            </Card.Subtitle>
           </Card.Body>
         </div>
         <MoveToShelfMenu
-          updateBook={updateBook}
           book={book} />
       </Card>
     </Col>

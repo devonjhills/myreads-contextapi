@@ -1,10 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Container, FormControl, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SearchContext } from '../context/SearchContext';
 
-const SearchBar = ({ query, handleQuery }) => {
+const SearchBar = () => {
+
+  const {query, handleQuery} = useContext(SearchContext);
+
   return (
     <Container>
       <InputGroup className="mb-5">

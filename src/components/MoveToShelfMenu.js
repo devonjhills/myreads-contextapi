@@ -2,8 +2,12 @@ import { DropdownButton, Dropdown } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { SHELFINFO } from '../constants'
+import { useContext } from 'react';
+import { BookContext } from '../context/BookContext';
 
-const MoveToShelfMenu = ({ book, updateBook }) => {
+const MoveToShelfMenu = ({ book }) => {
+
+  const {updateBook} = useContext(BookContext);
 
   const handleSelection = (eventKey) => {
     const shelf = eventKey;
