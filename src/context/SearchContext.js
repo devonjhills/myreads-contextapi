@@ -18,7 +18,7 @@ const SearchContextProvider = (props) => {
           setBookResults([]);
         } else if (Array.isArray(results)) {
           results = results.map((book) => {
-            const thisBook = books.find(({ id }) => book.id === id);
+            let thisBook = books.find(({ id }) => book.id === id);
             return {
               ...book,
               shelf: thisBook?.shelf ?? "none",

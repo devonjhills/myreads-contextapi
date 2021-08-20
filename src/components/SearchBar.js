@@ -1,35 +1,35 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import React, { useContext } from 'react'
-import { Button, Container, FormControl, InputGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { SearchContext } from '../context/SearchContext';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext } from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { SearchContext } from "../context/SearchContext";
 
 const SearchBar = () => {
-
-  const {query, handleQuery} = useContext(SearchContext);
+  const { query, handleQuery, bookResults } = useContext(SearchContext);
 
   return (
-    <Container>
-      <InputGroup className="mb-5">
-        <InputGroup.Prepend>
-          <Link to='/'>
-            <Button
-              variant="dark"
-              title="Return Home">
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </Button>
-          </Link>
-        </InputGroup.Prepend>
-        <FormControl
+    <div className="my-jumbo">
+      <InputGroup hasValidation className="mb-5">
+        <Link to="/">
+          <Button variant="dark" title="Return Home">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Button>
+        </Link>
+        <Form.Control
           type="text"
           placeholder="Search by title or author"
           value={query}
           onChange={(event) => handleQuery(event.target.value)}
+          isValid={bookResults}
+          isInvalid={query && bookResults.length === 0}
         />
+        <Form.Control.Feedback type="invalid">
+          No results found for this query
+        </Form.Control.Feedback>
       </InputGroup>
-    </Container>
-  )
-}
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

@@ -6,6 +6,10 @@ body,
 
 .my-jumbo {
   margin: 10px 5px 2px 5px;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #b8c8da;
+  border-radius: .3rem;
 }
 
 .card-horizontal {
@@ -34,7 +38,8 @@ body,
 }
 
 .my-footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
+  border-top: #498fdf;
 }

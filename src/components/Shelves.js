@@ -1,16 +1,14 @@
-import React from 'react'
-import { Jumbotron } from 'react-bootstrap'
-import BookList from './BookList'
-import ShelfHeader from './ShelfHeader'
+import React from "react";
+import BookList from "./BookList";
+import ShelfHeader from "./ShelfHeader";
 
 const Shelves = ({ books, shelfName }) => {
-
   return (
-    <Jumbotron fluid className="my-jumbo">
+    <div className="my-jumbo">
       <ShelfHeader heading={shelfName} />
-      <BookList books={books}/>
-    </Jumbotron>
-  )
-}
+      <BookList books={books} />
+    </div>
+  );
+};
 
-export default Shelves
+export default Shelves;
